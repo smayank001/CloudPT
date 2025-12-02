@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Cloud 9 Brand Colors - Ocean Inspired */
+    --ocean-deep: 197 82% 34%;
+    --ocean-bright: 197 79% 54%;
+    --ocean-pale: 177 60% 85%;
+    --ocean-mist: 180 45% 96%;
+    
+    --background: 0 0% 100%;
+    --foreground: 197 82% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 197 82% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 197 82% 20%;
+
+    --primary: 197 82% 34%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 197 79% 54%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 177 60% 85%;
+    --muted-foreground: 197 40% 35%;
+
+    --accent: 180 45% 96%;
+    --accent-foreground: 197 82% 34%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 197 30% 88%;
+    --input: 197 30% 88%;
+    --ring: 197 82% 34%;
+
+    --radius: 0.75rem;
+
+    /* Wave Gradient */
+    --gradient-wave: linear-gradient(180deg, hsl(var(--ocean-deep)) 0%, hsl(var(--ocean-bright)) 50%, hsl(var(--ocean-pale)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--ocean-deep)) 0%, hsl(var(--ocean-bright)) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(var(--ocean-mist)) 0%, hsl(var(--background)) 100%);
+    
+    /* Shadows */
+    --shadow-ocean: 0 10px 40px -10px hsl(var(--ocean-bright) / 0.3);
+    --shadow-lift: 0 4px 20px -4px hsl(var(--ocean-deep) / 0.2);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --ocean-deep: 197 82% 34%;
+    --ocean-bright: 197 79% 54%;
+    --ocean-pale: 177 60% 85%;
+    --ocean-mist: 197 20% 15%;
+    
+    --background: 197 40% 8%;
+    --foreground: 177 60% 95%;
+
+    --card: 197 35% 12%;
+    --card-foreground: 177 60% 95%;
+
+    --popover: 197 35% 12%;
+    --popover-foreground: 177 60% 95%;
+
+    --primary: 197 79% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 197 82% 34%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 197 30% 20%;
+    --muted-foreground: 177 40% 70%;
+
+    --accent: 197 30% 20%;
+    --accent-foreground: 177 60% 95%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 197 30% 25%;
+    --input: 197 30% 25%;
+    --ring: 197 79% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  /* Remove Montserrat font import since we're using Times New Roman */
+}
+
+@layer utilities {
+  .wave-gradient {
+    background: var(--gradient-wave);
+  }
+  
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .soft-gradient {
+    background: var(--gradient-soft);
+  }
+  
+  .shadow-ocean {
+    box-shadow: var(--shadow-ocean);
+  }
+  
+  .shadow-lift {
+    box-shadow: var(--shadow-lift);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-accent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/50;
+}
+
+/* Enhanced focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+}
+
+/* Responsive typography */
+@media (min-width: 768px) {
+  .text-responsive-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+  }
+}
+
+/* Pulse animation for call to action */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(30, 58, 138, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(30, 58, 138, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(30, 58, 138, 0);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Elegant heading styles */
+h1 {
+  @apply text-4xl md:text-5xl;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl;
+  letter-spacing: -0.01em;
+}
+
+h4 {
+  @apply text-xl md:text-2xl;
+}
+
+h5 {
+  @apply text-lg md:text-xl;
+}
+
+h6 {
+  @apply text-base md:text-lg;
+}
+
+/* Paragraph styling for elegant readability */
+p {
+  @apply text-base md:text-lg leading-relaxed;
+  letter-spacing: 0.01em;
+}
