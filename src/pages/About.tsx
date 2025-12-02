@@ -7,6 +7,7 @@ import PartnerMarquee from "@/components/PartnerMarquee";
 import therapySession from "@/assets/therapy-session.jpg";
 import helping from "@/assets/Helping.png";
 import aboutt from "@/assets/about.jpg";
+import homee from "@/assets/Homee.jpg";
 
 const About = () => {
   const values = [
@@ -40,7 +41,12 @@ const About = () => {
 
       {/* Hero Section */}
       <section className="relative pt-40 pb-20 hero-gradient">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <img
+          src={homee}
+          alt="Hero Background"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto animate-fade-in">
             <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground mb-6">
               About Cloud 9 Physical Therapy

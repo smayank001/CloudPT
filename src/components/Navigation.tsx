@@ -86,7 +86,7 @@ const Navigation = () => {
                 to="/booking"
                 className={`hover:text-primary transition-smooth font-medium text-foreground`}
               >
-                Book
+                Booking
               </Link>
               <Link
                 to="/gallery"

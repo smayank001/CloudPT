@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import serviceBg from "@/assets/service.jpg";
 
 const Services = () => {
   const services = [
@@ -106,7 +107,12 @@ const Services = () => {
 
       {/* Hero Section */}
       <section className="relative pt-36 pb-20 hero-gradient">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <img
+          src={serviceBg}
+          alt="Services Background"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto animate-fade-in">
             <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground mb-6">
               Our Services
