@@ -129,7 +129,7 @@ const Booking = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-12 hero-gradient">
+      <section className="relative pt-36 pb-12 hero-gradient">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in">
           <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground mb-6">
             Book Your Appointment
@@ -511,10 +511,10 @@ const Booking = () => {
               </a>
               <span className="text-muted-foreground hidden sm:block">|</span>
               <a
-                href="mailto:info@cloud9pt.com"
+                href="mailto:contact@cloud9pt.com"
                 className="text-primary hover:text-secondary transition-smooth font-medium"
               >
-                Email Us
+                Email Us: contact@cloud9pt.com
               </a>
             </div>
           </div>

@@ -170,7 +170,7 @@ const Home = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-20 min-h-screen flex items-center">
+      <section className="relative pt-28 min-h-screen flex items-center">
         <div className="absolute inset-0 hero-gradient opacity-120" />
         <video
           autoPlay
@@ -362,7 +362,7 @@ const Home = () => {
                       <CardContent className="p-8">
                         <div className="flex mb-4">
                           {[...Array(testimonial.rating)].map((_, i) => (
-                            <span key={i} className="text-secondary text-2xl">
+                            <span key={i} className="text-yellow-400 text-2xl">
                               ★
                             </span>
                           ))}

@@ -171,7 +171,7 @@ const Gallery = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-20 min-h-[60vh] flex items-center">
+      <section className="relative pt-24 min-h-[60vh] flex items-center">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80" />
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"

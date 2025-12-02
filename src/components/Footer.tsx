@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import logo from "@/assets/cloud9-logo.png";
-import cloud from "@/assets/reallogo.png";
+// import logo from "@/assets/cloud9-logo.png";
+// import cloud from "@/assets/reallogo.png";
+import logooo from "@/assets/logoooo.jpg";
 
 const Footer = () => {
   return (
@@ -11,9 +12,9 @@ const Footer = () => {
           {/* Logo & About */}
           <div className="space-y-4">
             <img
-              src={cloud}
+              src={logooo}
               alt="Cloud 9 Physical Therapy"
-              className="h-16 w-auto brightness-0 invert"
+              className="h-16 w-auto rounded-lg"
             />
             <p className="text-sm text-primary-foreground/80">
               Expert physical therapy services focused on your recovery and
@@ -101,18 +102,23 @@ const Footer = () => {
               <li className="flex items-start space-x-3 text-sm">
                 <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
                 <a
-                  href="mailto:info@cloud9pt.com"
+                  href="mailto:contact@cloud9pt.com"
                   className="hover:text-secondary transition-smooth"
                 >
-                  info@cloud9pt.com
+                  contact@cloud9pt.com
                 </a>
               </li>
               <li className="flex items-start space-x-3 text-sm">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=5370+E.+Thompson+Rd,+Ste.+G,+Indianapolis,+IN+46237"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-secondary transition-smooth"
+                >
                   5370 E. Thompson Rd, Ste. G<br />
                   Indianapolis, IN 46237
-                </span>
+                </a>
               </li>
             </ul>
           </div>

@@ -34,7 +34,7 @@ const Contact = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 hero-gradient">
+      <section className="relative pt-36 pb-20 hero-gradient">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in">
           <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground mb-6">
             Contact Us
@@ -79,7 +79,7 @@ const Contact = () => {
                       setFormData({ ...formData, email: e.target.value })
                     }
                     className="mt-2"
-                    placeholder="john@example.com"
+                    placeholder="contact@cloud9pt.com"
                   />
                 </div>
 
@@ -174,10 +174,10 @@ const Contact = () => {
                     <div>
                       <h4 className="font-semibold mb-1">Email</h4>
                       <a
-                        href="mailto:info@cloud9pt.com"
+                        href="mailto:contact@cloud9pt.com"
                         className="text-muted-foreground hover:text-secondary transition-smooth"
                       >
-                        info@cloud9pt.com
+                        contact@cloud9pt.com
                       </a>
                       <p className="text-sm text-muted-foreground mt-1">
                         We respond within 24 hours
