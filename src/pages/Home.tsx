@@ -20,6 +20,7 @@ import homee from "@/assets/home.jpg";
 import heroVideo from "@/assets/video.mp4";
 import PartnerMarquee from "@/components/PartnerMarquee";
 import { useState, useEffect } from "react";
+import homeee from "@/assets/homee.jpg";
 
 const Home = () => {
   const features = [
@@ -172,16 +173,11 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative pt-28 min-h-screen flex items-center">
         <div className="absolute inset-0 hero-gradient opacity-120" />
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
-        >
-          <source src={heroVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <img
+          src={homee}
+          alt="Hero Image"
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
+        />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <div className="max-w-3xl animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
