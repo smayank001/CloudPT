@@ -11,36 +11,36 @@ const Navigation = () => {
   return (
     <header className="fixed w-full z-50">
       {/* Contact Strip */}
-      <div className="bg-white text-foreground py-2 border-b">
+      <div className="bg-primary text-primary-foreground py-2 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm">
             <div className="flex items-center space-x-4 mb-2 md:mb-0">
               <div className="flex items-center">
-                <Phone className="h-4 w-4 mr-2 text-primary" />
+                <Phone className="h-4 w-4 mr-2" />
                 <a
                   href="tel:+13177343430"
-                  className="hover:text-primary transition-smooth"
+                  className="hover:text-secondary transition-smooth"
                 >
                   (317) 734-3430
                 </a>
               </div>
               <div className="flex items-center">
-                <Phone className="h-4 w-4 mr-2 text-primary" />
+                <Phone className="h-4 w-4 mr-2" />
                 <a
                   href="tel:+13177343376"
-                  className="hover:text-primary transition-smooth"
+                  className="hover:text-secondary transition-smooth"
                 >
                   (317) 734-3376
                 </a>
               </div>
             </div>
             <div className="flex items-center">
-              <MapPin className="h-4 w-4 mr-2 text-primary" />
+              <MapPin className="h-4 w-4 mr-2" />
               <a
                 href="https://www.google.com/maps/search/?api=1&query=5370+E.+Thompson+Rd,+Ste.+G,+Indianapolis,+IN+46237"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-smooth"
+                className="hover:text-secondary transition-smooth"
               >
                 5370 E. Thompson Rd, Ste. G, Indianapolis, IN 46237
               </a>

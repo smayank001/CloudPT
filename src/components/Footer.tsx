@@ -10,13 +10,24 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo & About */}
-          <div className="space-y-4">
+          {/* <div className="space-y-4">
             <img
               src={logooo}
               alt="Cloud 9 Physical Therapy"
               className="h-16 w-auto rounded-lg"
             />
             <p className="text-sm text-primary-foreground/80">
+              Expert physical therapy services focused on your recovery and
+              wellness. Personalized care, professional results.
+            </p>
+          </div> */}
+          <div className="space-y-5">
+            <img
+              src={logooo}
+              alt="Cloud 9 Physical Therapy"
+              className="h-24 w-auto rounded-lg" // increased from h-16 to h-24
+            />
+            <p className="text-base text-primary-foreground/80 leading-relaxed">
               Expert physical therapy services focused on your recovery and
               wellness. Personalized care, professional results.
             </p>
