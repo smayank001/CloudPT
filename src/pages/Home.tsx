@@ -177,6 +177,7 @@ const Home = () => {
           src={homee}
           alt="Hero Image"
           className="absolute inset-0 w-full h-full object-cover opacity-70"
+          loading="eager"
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <div className="max-w-3xl animate-fade-in">
@@ -248,6 +249,7 @@ const Home = () => {
                 src={heroImage}
                 alt="Physical Therapy Session"
                 className="rounded-2xl shadow-ocean w-full object-cover h-full"
+                loading="lazy"
               />
             </div>
             <div
@@ -299,6 +301,7 @@ const Home = () => {
                     src={service.image}
                     alt={service.title}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">

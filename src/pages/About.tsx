@@ -45,6 +45,7 @@ const About = () => {
           src={homee}
           alt="Hero Background"
           className="absolute inset-0 w-full h-full object-cover opacity-30"
+          loading="eager"
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto animate-fade-in">
@@ -90,6 +91,7 @@ const About = () => {
                 src={aboutt}
                 alt="Therapy Session"
                 className="rounded-2xl shadow-ocean w-full"
+                loading="lazy"
               />
             </div>
           </div>
