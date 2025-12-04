@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Printer } from "lucide-react";
 // import logo from "@/assets/cloud9-logo.png";
 // import cloud from "@/assets/reallogo.png";
 import logooo from "@/assets/logoooo.jpg";
@@ -102,9 +102,9 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-start space-x-3 text-sm">
-                <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                <Printer className="h-4 w-4 mt-0.5 flex-shrink-0" />
                 <a
-                  href="tel:+13177343376"
+                  href="fax:+13177343376"
                   className="hover:text-secondary transition-smooth"
                 >
                   (317) 734-3376

@@ -8,6 +8,8 @@ import therapySession from "@/assets/therapy-session.jpg";
 import helping from "@/assets/Helping.png";
 import aboutt from "@/assets/about.jpg";
 import homee from "@/assets/Homee.jpg";
+import owner from "@/assets/owner.jpg";
+import instructor from "@/assets/instructor.jpg";
 
 const About = () => {
   const values = [
@@ -130,9 +132,14 @@ const About = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            {/* Owner */}
             <div className="bg-card rounded-2xl p-8 shadow-lift">
-              <div className="w-32 h-32 rounded-full bg-primary/10 mx-auto mb-6 flex items-center justify-center">
-                <Users className="h-16 w-16 text-primary" />
+              <div className="relative w-32 h-32 rounded-full bg-primary/10 mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                <img
+                  src={owner}
+                  alt="Owner"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-2xl font-semibold text-center mb-2">
                 Dr. Sarah Johnson, PT, DPT
@@ -146,9 +153,15 @@ const About = () => {
                 manual therapy and dry needling.
               </p>
             </div>
+
+            {/* Instructor */}
             <div className="bg-card rounded-2xl p-8 shadow-lift">
-              <div className="w-32 h-32 rounded-full bg-secondary/10 mx-auto mb-6 flex items-center justify-center">
-                <Users className="h-16 w-16 text-secondary" />
+              <div className="relative w-32 h-32 rounded-full bg-secondary/10 mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                <img
+                  src={instructor}
+                  alt="Instructor"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-2xl font-semibold text-center mb-2">
                 Dr. Michael Chen, PT, DPT

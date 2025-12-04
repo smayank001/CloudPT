@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Phone, MapPin } from "lucide-react";
+import { Menu, X, Phone, MapPin, Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/cloud9-logo.png";
 import cloud from "@/assets/reallogo.png";
@@ -25,9 +25,9 @@ const Navigation = () => {
                 </a>
               </div>
               <div className="flex items-center">
-                <Phone className="h-4 w-4 mr-2" />
+                <Printer className="h-4 w-4 mr-2" />
                 <a
-                  href="tel:+13177343376"
+                  href="fax:+13177343376"
                   className="hover:text-secondary transition-smooth"
                 >
                   (317) 734-3376
