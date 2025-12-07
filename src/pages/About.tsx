@@ -137,12 +137,12 @@ const About = () => {
               <div className="relative w-32 h-32 rounded-full bg-primary/10 mx-auto mb-6 flex items-center justify-center overflow-hidden">
                 <img
                   src={owner}
-                  alt="Owner"
+                  alt="Dr. Sakshi Nandal"
                   className="w-full h-full object-cover"
                 />
               </div>
               <h3 className="text-2xl font-semibold text-center mb-2">
-                Dr. Sarah Johnson, PT, DPT
+                Dr. Sakshi Nandal (PT, DPT, CIDN)
               </h3>
               <p className="text-center text-primary mb-4">
                 Lead Physical Therapist
@@ -150,7 +150,11 @@ const About = () => {
               <p className="text-muted-foreground text-center">
                 Board-certified with 15+ years of experience specializing in
                 orthopedic and sports rehabilitation. Advanced certifications in
-                manual therapy and dry needling.
+                manual therapy and dry needling. Known for patient-centered care
+                and measurable results. Has worked with individuals recovering
+                from injuries, chronic pain, and mobility challenges. Believes
+                in empowering patients through education and long-term health
+                improvements.
               </p>
             </div>
 
@@ -159,20 +163,23 @@ const About = () => {
               <div className="relative w-32 h-32 rounded-full bg-secondary/10 mx-auto mb-6 flex items-center justify-center overflow-hidden">
                 <img
                   src={instructor}
-                  alt="Instructor"
+                  alt="Devon Davis"
                   className="w-full h-full object-cover"
                 />
               </div>
               <h3 className="text-2xl font-semibold text-center mb-2">
-                Dr. Michael Chen, PT, DPT
+                Devon Davis
               </h3>
               <p className="text-center text-secondary mb-4">
-                Senior Physical Therapist
+                Patient Care Coordinator
               </p>
               <p className="text-muted-foreground text-center">
-                Specialized in vestibular rehabilitation and geriatric physical
-                therapy. 12+ years helping patients regain balance, strength,
-                and confidence.
+                Specialized in vestibular rehabilitation and geriatric therapy.
+                With 12+ years of experience helping patients regain balance,
+                strength, and confidence. Handles scheduling, insurance, and
+                patient communication with care. Dedicated to making every visit
+                smooth and comforting for patients. Passionate about improving
+                mobility and long-term health outcomes.
               </p>
             </div>
           </div>
