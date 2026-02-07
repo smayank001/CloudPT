@@ -1,69 +1,36 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
   },
+
+  // 🔹 NO rollupOptions, NO manualChunks
+  build: {
+    chunkSizeWarningLimit: 2000,
+  },
+
   plugins: [
-    react(), 
+    react(),
     mode === "development" && componentTagger(),
     ViteImageOptimizer({
-      /* pass your config here */
       test: /\.(jpe?g|png|gif|tiff|webp|avif)$/i,
-      exclude: undefined,
-      include: undefined,
       includePublic: true,
       logStats: true,
-      ansiColors: true,
-      svg: {
-        multipass: true,
-        plugins: [
-          {
-            name: 'preset-default',
-            params: {
-              overrides: {
-                cleanupNumericValues: false,
-                removeViewBox: false,
-              },
-              cleanupIDs: {
-                minify: false,
-                remove: false,
-              },
-              convertPathData: false,
-            },
-          },
-          'sortAttrs',
-        ],
-      },
-      png: {
-        quality: 80,
-      },
-      jpeg: {
-        quality: 80,
-      },
-      jpg: {
-        quality: 80,
-      },
-      tiff: {
-        quality: 80,
-      },
-      webp: {
-        quality: 80,
-      },
-      avif: {
-        quality: 80,
-        speed: 5,
-      },
-      cache: false,
-      cacheLocation: undefined,
-    })
+      png: { quality: 80 },
+      jpeg: { quality: 80 },
+      jpg: { quality: 80 },
+      tiff: { quality: 80 },
+      webp: { quality: 80 },
+      avif: { quality: 80, speed: 5 },
+    }),
   ].filter(Boolean),
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

@@ -398,6 +398,34 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Patient Reviews Section */}
+      <section className="py-20 bg-accent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-slide-up">
+            Patient Reviews
+          </h2>
+
+          <div className="flex justify-center">
+            <div className="w-full max-w-4xl rounded-xl overflow-hidden shadow-2xl bg-white">
+              <div
+                className="relative w-full"
+                style={{ paddingBottom: "56.25%" /* 16:9 Aspect Ratio */ }}
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3069.9197943775034!2d-86.07845549030306!3d39.69650727144587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886b451a2385a38d%3A0x34655aa9746febc7!2sCloud%209%20Physical%20Therapy!5e0!3m2!1sen!2sin!4v1770437757678!5m2!1sen!2sin"
+                  className="absolute top-0 left-0 w-full h-full rounded-xl"
+                  style={{ border: 0 }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Google Maps Patient Reviews for Cloud 9 Physical Therapy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Partners Section */}
       <PartnerMarquee />
 

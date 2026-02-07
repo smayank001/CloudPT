@@ -108,7 +108,9 @@ const Booking = () => {
     toast({
       title: "Appointment Confirmed!",
       description:
-        "We've received your booking request. You'll receive a confirmation email shortly.",
+        "We've received your booking request. You'll receive a confirmation email at " +
+        formData.email +
+        " shortly.",
     });
     // Reset form
     setFormData({
@@ -453,6 +455,15 @@ const Booking = () => {
                     <strong>Important:</strong> You will receive a confirmation
                     email shortly after booking. Please arrive 10 minutes early
                     for your first appointment to complete necessary paperwork.
+                    If you don't receive the confirmation, please check your
+                    spam folder or contact us at{" "}
+                    <a
+                      href="mailto:contact@cloud9pt.com"
+                      className="text-primary hover:underline"
+                    >
+                      contact@cloud9pt.com
+                    </a>
+                    .
                   </p>
                 </div>
               </div>
