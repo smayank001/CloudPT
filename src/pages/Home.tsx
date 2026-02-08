@@ -382,7 +382,7 @@ const Home = () => {
             <img
               src={reviewImage}
               alt="Google Reviews"
-              className="w-24 h-24 object-contain bg-transparent"
+              className="w-32 h-32 object-contain bg-transparent"
             />
           </div>
 
