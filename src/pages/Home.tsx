@@ -21,6 +21,7 @@ import heroVideo from "@/assets/video.mp4";
 import PartnerMarquee from "@/components/PartnerMarquee";
 import { useState, useEffect } from "react";
 import homeee from "@/assets/homee.jpg";
+import reviewImage from "@/assets/review.jpeg";
 
 const Home = () => {
   const features = [
@@ -74,32 +75,32 @@ const Home = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Sarah M.",
-      text: "The personalized care I received was exceptional. My chronic back pain is finally manageable!",
+      name: "im a vloger",
+      text: "A great place and she works had to help you!",
       rating: 5,
     },
     {
       id: 2,
-      name: "John D.",
-      text: "Professional, caring, and effective. They helped me recover from my knee surgery faster than expected.",
+      name: "Troy Duncan",
+      text: "Sky was very helpful and informative. The dry needling is amazing. They also offer red light therapy which i am excited to try!",
       rating: 5,
     },
     {
       id: 3,
-      name: "Lisa K.",
-      text: "Weekend appointments were a lifesaver for my busy schedule. Highly recommend Cloud 9!",
+      name: "Y S",
+      text: "That is a professional office to treat your body. Nice work nice location and great service!",
       rating: 5,
     },
     {
       id: 4,
-      name: "Michael T.",
-      text: "The therapists truly listen and adapt treatments to your specific needs. Best PT experience I've had!",
+      name: "Sunny C",
+      text: "This is my first visit cloud 9 i got lower back pain and shoulder pain for a long time they give me a great treatment. I’m feeling better now.can’t wait see them again 😊",
       rating: 5,
     },
     {
       id: 5,
-      name: "Jennifer R.",
-      text: "After struggling with neck pain for months, I'm finally pain-free thanks to their expertise.",
+      name: "jamar killebrew",
+      text: "I can't believe it , I have had neck pain for about 2 months. Once I seen Dr. Sky my pain was relieved she is the best",
       rating: 5,
     },
   ];
@@ -339,8 +340,15 @@ const Home = () => {
       {/* Testimonials Slider */}
       <section className="py-20 soft-gradient">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-slide-up">
+          {/* <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-slide-up">
             What Our Patients Say
+          </h2> */}
+          <h2 className="flex flex-col items-center gap-4 text-4xl md:text-5xl font-bold text-center mb-16 animate-slide-up">
+            <img
+              src={reviewImage}
+              alt="Patient Reviews"
+              className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
+            />
           </h2>
 
           {/* Testimonial Slider */}
@@ -399,7 +407,7 @@ const Home = () => {
       </section>
 
       {/* Patient Reviews Section */}
-      <section className="py-20 bg-accent">
+      {/* <section className="py-20 bg-accent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-slide-up">
             Patient Reviews
@@ -409,7 +417,7 @@ const Home = () => {
             <div className="w-full max-w-4xl rounded-xl overflow-hidden shadow-2xl bg-white">
               <div
                 className="relative w-full"
-                style={{ paddingBottom: "56.25%" /* 16:9 Aspect Ratio */ }}
+                style={{ paddingBottom: "56.25%" }}
               >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3069.9197943775034!2d-86.07845549030306!3d39.69650727144587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886b451a2385a38d%3A0x34655aa9746febc7!2sCloud%209%20Physical%20Therapy!5e0!3m2!1sen!2sin!4v1770437757678!5m2!1sen!2sin"
@@ -420,6 +428,45 @@ const Home = () => {
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Google Maps Patient Reviews for Cloud 9 Physical Therapy"
                 />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+      <section className="py-20 bg-accent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-slide-up">
+            Patient Reviews
+          </h2>
+
+          <div className="flex justify-center">
+            <div className="w-full max-w-4xl rounded-xl overflow-hidden shadow-2xl bg-white">
+              {/* MAP */}
+              <div
+                className="relative w-full"
+                style={{ paddingBottom: "56.25%" }}
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3069.9197943775034!2d-86.07845549030306!3d39.69650727144587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886b451a2385a38d%3A0x34655aa9746febc7!2sCloud%209%20Physical%20Therapy!5e0!3m2!1sen!2sin!4v1770437757678!5m2!1sen!2sin"
+                  className="absolute top-0 left-0 w-full h-full rounded-xl"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Google Maps Patient Reviews for Cloud 9 Physical Therapy"
+                />
+              </div>
+
+              {/* CTA — ADD THIS PART */}
+              <div className="text-center py-6">
+                <a
+                  href="https://www.google.com/maps/place/Cloud+9+Physical+Therapy/@39.696507,-86.075875,16z/data=!4m8!3m7!1s0x886b451a2385a38d:0x34655aa9746febc7!8m2!3d39.6965073!4d-86.0758752!9m1!1b1!16s%2Fg%2F11lz7r2cfb?hl=en&entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary font-semibold underline hover:opacity-80 transition"
+                >
+                  ⭐ Read all Google reviews
+                </a>
               </div>
             </div>
           </div>
