@@ -21,7 +21,7 @@ import heroVideo from "@/assets/video.mp4";
 import PartnerMarquee from "@/components/PartnerMarquee";
 import { useState, useEffect } from "react";
 import homeee from "@/assets/homee.jpg";
-import reviewImage from "@/assets/review.jpg";
+import reviewImage from "@/assets/g.jpg";
 
 const Home = () => {
   const features = [
