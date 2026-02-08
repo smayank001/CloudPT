@@ -21,7 +21,7 @@ import heroVideo from "@/assets/video.mp4";
 import PartnerMarquee from "@/components/PartnerMarquee";
 import { useState, useEffect } from "react";
 import homeee from "@/assets/homee.jpg";
-import reviewImage from "@/assets/.jpg";
+import reviewImage from "@/assets/review.jpg";
 
 const Home = () => {
   const features = [
@@ -382,7 +382,7 @@ const Home = () => {
             <img
               src={reviewImage}
               alt="Google Reviews"
-              className="w-32 h-32 object-contain bg-transparent"
+              className="w-24 h-24 object-contain bg-transparent"
             />
           </div>
 
