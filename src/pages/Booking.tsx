@@ -105,13 +105,45 @@ const Booking = () => {
   };
 
   const handleSubmit = () => {
+    const subject = `New Appointment Booking - ${formData.firstName} ${formData.lastName}`;
+
+    const service = services.find((s) => s.id === formData.service)?.name || "";
+
+    const date = formData.date ? format(formData.date, "PPPP") : "";
+
+    const body = `
+New Appointment Booking Request
+
+Patient Information:
+-------------------
+Name: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+Appointment Details:
+-------------------
+Service: ${service}
+Date: ${date}
+Time: ${formData.time}
+
+Additional Notes:
+${formData.notes || "No additional notes provided"}
+
+Please contact the patient to confirm this appointment.
+  `.trim();
+
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(body);
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=contact@cloud9pt.com&su=${encodedSubject}&body=${encodedBody}`;
+
+    window.open(gmailUrl, "_blank");
+
     toast({
-      title: "Appointment Confirmed!",
-      description:
-        "We've received your booking request. You'll receive a confirmation email at " +
-        formData.email +
-        " shortly.",
+      title: "Redirecting to Gmail!",
+      description: "Please send the email to complete your booking.",
     });
+
     // Reset form
     setFormData({
       service: "",
@@ -123,6 +155,7 @@ const Booking = () => {
       phone: "",
       notes: "",
     });
+
     setCurrentStep(1);
   };
 
