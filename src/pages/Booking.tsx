@@ -135,12 +135,19 @@ Please contact the patient to confirm this appointment.
     const encodedSubject = encodeURIComponent(subject);
     const encodedBody = encodeURIComponent(body);
 
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=contact@cloud9pt.com&su=${encodedSubject}&body=${encodedBody}`;
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-    window.open(gmailUrl, "_blank");
+    if (isMobile) {
+      // Mobile → open Gmail app or default mail app
+      window.location.href = `mailto:contact@cloud9pt.com?subject=${encodedSubject}&body=${encodedBody}`;
+    } else {
+      // Desktop → open Gmail web
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=contact@cloud9pt.com&su=${encodedSubject}&body=${encodedBody}`;
+      window.open(gmailUrl, "_blank");
+    }
 
     toast({
-      title: "Redirecting to Gmail!",
+      title: "Redirecting...",
       description: "Please send the email to complete your booking.",
     });
 
