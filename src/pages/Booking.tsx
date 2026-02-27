@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { format } from "date-fns";
-import { CalendarIcon, Check, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  CalendarIcon,
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Loader2,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -16,6 +22,7 @@ import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import emailjs from "@emailjs/browser";
 
 const services = [
   { id: "acute-chronic", name: "Acute / Chronic Musculoskeletal Injuries" },
@@ -58,6 +65,7 @@ const Booking = () => {
     phone: "",
     notes: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const steps = [
     { number: 1, title: "Select Service" },
@@ -104,66 +112,64 @@ const Booking = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
-  const handleSubmit = () => {
-    const subject = `New Appointment Booking - ${formData.firstName} ${formData.lastName}`;
+  const handleConfirmAppointment = async () => {
+    setIsSubmitting(true);
 
-    const service = services.find((s) => s.id === formData.service)?.name || "";
+    try {
+      // Prepare EmailJS template parameters
+      const templateParams = {
+        service: services.find((s) => s.id === formData.service)?.name || "",
+        date: formData.date ? format(formData.date, "PPPP") : "",
+        time: formData.time,
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.notes,
+      };
 
-    const date = formData.date ? format(formData.date, "PPPP") : "";
+      // Send email via EmailJS
+      await emailjs.send(
+        "service_5jp8r39", // Service ID
+        "template_mm0ajq5", // Template ID
+        templateParams,
+        "l7xwj5fV3nsqyQNfS" // Public Key
+      );
 
-    const body = `
-New Appointment Booking Request
+      // Show success toast
+      toast({
+        title: "Appointment Confirmed!",
+        description:
+          "Your appointment has been booked successfully. We'll contact you shortly to confirm.",
+        variant: "default",
+      });
 
-Patient Information:
--------------------
-Name: ${formData.firstName} ${formData.lastName}
-Email: ${formData.email}
-Phone: ${formData.phone}
+      // Reset form
+      setFormData({
+        service: "",
+        date: undefined,
+        time: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        notes: "",
+      });
 
-Appointment Details:
--------------------
-Service: ${service}
-Date: ${date}
-Time: ${formData.time}
+      // Move back to first step
+      setCurrentStep(1);
+    } catch (error) {
+      console.error("Failed to send email:", error);
 
-Additional Notes:
-${formData.notes || "No additional notes provided"}
-
-Please contact the patient to confirm this appointment.
-  `.trim();
-
-    const encodedSubject = encodeURIComponent(subject);
-    const encodedBody = encodeURIComponent(body);
-
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-    if (isMobile) {
-      // Mobile → open Gmail app or default mail app
-      window.location.href = `mailto:contact@cloud9pt.com?subject=${encodedSubject}&body=${encodedBody}`;
-    } else {
-      // Desktop → open Gmail web
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=contact@cloud9pt.com&su=${encodedSubject}&body=${encodedBody}`;
-      window.open(gmailUrl, "_blank");
+      // Show error toast
+      toast({
+        title: "Booking Failed",
+        description:
+          "There was an error processing your appointment. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
-
-    toast({
-      title: "Redirecting...",
-      description: "Please send the email to complete your booking.",
-    });
-
-    // Reset form
-    setFormData({
-      service: "",
-      date: undefined,
-      time: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      notes: "",
-    });
-
-    setCurrentStep(1);
   };
 
   return (
@@ -531,11 +537,21 @@ Please contact the patient to confirm this appointment.
                 </Button>
               ) : (
                 <Button
-                  onClick={handleSubmit}
+                  onClick={handleConfirmAppointment}
+                  disabled={isSubmitting}
                   className="ml-auto gap-2 shadow-ocean"
                 >
-                  Confirm Appointment
-                  <Check className="h-4 w-4" />
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Confirming...
+                    </>
+                  ) : (
+                    <>
+                      Confirm Appointment
+                      <Check className="h-4 w-4" />
+                    </>
+                  )}
                 </Button>
               )}
             </div>

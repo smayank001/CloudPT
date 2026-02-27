@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -17,16 +18,53 @@ const Contact = () => {
     concern: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would submit to a backend
-    toast({
-      title: "Appointment Request Received!",
-      description:
-        "We'll contact you within 24 hours to confirm your appointment.",
-    });
-    setFormData({ name: "", email: "", phone: "", concern: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      // Prepare EmailJS template parameters
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        concern: formData.concern,
+        message: formData.message,
+      };
+
+      // Send email via EmailJS
+      await emailjs.send(
+        "service_5jp8r39", // Service ID
+        "template_mm0ajq5", // Template ID - reusing the same template for consistency
+        templateParams,
+        "l7xwj5fV3nsqyQNfS" // Public Key
+      );
+
+      // Show success toast
+      toast({
+        title: "Appointment Request Received!",
+        description:
+          "We'll contact you within 24 hours to confirm your appointment.",
+        variant: "default",
+      });
+
+      // Reset form
+      setFormData({ name: "", email: "", phone: "", concern: "", message: "" });
+    } catch (error) {
+      console.error("Failed to send email:", error);
+
+      // Show error toast
+      toast({
+        title: "Request Failed",
+        description:
+          "There was an error processing your request. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -127,8 +165,20 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full shadow-ocean">
-                  Submit Appointment Request
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full shadow-ocean"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                      Sending Request...
+                    </>
+                  ) : (
+                    "Submit Appointment Request"
+                  )}
                 </Button>
               </form>
             </div>
