@@ -36,10 +36,10 @@ const Contact = () => {
 
       // Send email via EmailJS
       await emailjs.send(
-        "service_5jp8r39", // Service ID
-        "template_mm0ajq5", // Template ID - reusing the same template for consistency
+        process.env.VITE_EMAILJS_SERVICE_ID!, // Service ID
+        process.env.VITE_EMAILJS_TEMPLATE_ID!, // Template ID - reusing the same template for consistency
         templateParams,
-        "l7xwj5fV3nsqyQNfS" // Public Key
+        process.env.VITE_EMAILJS_PUBLIC_KEY! // Public Key
       );
 
       // Show success toast
