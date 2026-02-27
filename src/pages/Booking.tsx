@@ -129,10 +129,10 @@ const Booking = () => {
 
       // Send email via EmailJS
       await emailjs.send(
-        process.env.VITE_EMAILJS_SERVICE_ID!, // Service ID
-        process.env.VITE_EMAILJS_TEMPLATE_ID!, // Template ID
+        import.meta.env.VITE_EMAILJS_SERVICE_ID, // Service ID
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // Template ID
         templateParams,
-        process.env.VITE_EMAILJS_PUBLIC_KEY! // Public Key
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY // Public Key
       );
 
       // Show success toast
