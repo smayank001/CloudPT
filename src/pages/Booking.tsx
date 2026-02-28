@@ -128,12 +128,34 @@ const Booking = () => {
       };
 
       // Send email via EmailJS
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID, // Service ID
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // Template ID
+      console.log("Sending email with params:", templateParams); // Debug log
+
+      // Validate required environment variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID?.trim();
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID?.trim();
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.trim();
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error(
+          "Missing EmailJS configuration. Please check your .env file."
+        );
+      }
+
+      console.log("Environment variables loaded:", {
+        serviceId: serviceId ? "LOADED" : "MISSING",
+        templateId: templateId ? "LOADED" : "MISSING",
+        publicKey: publicKey ? "LOADED" : "MISSING",
+      });
+
+      // Send email via EmailJS
+      const response = await emailjs.send(
+        serviceId, // Service ID
+        templateId, // Template ID
         templateParams,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY // Public Key
+        publicKey // Public Key
       );
+
+      console.log("EmailJS response:", response); // Debug log
 
       // Show success toast
       toast({
@@ -157,13 +179,20 @@ const Booking = () => {
 
       // Move back to first step
       setCurrentStep(1);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Failed to send email:", error);
+
+      // Check if it's an EmailJS specific error
+      if (error.status) {
+        console.error("EmailJS Error Status:", error.status);
+        console.error("EmailJS Error Text:", error.text);
+      }
 
       // Show error toast
       toast({
         title: "Booking Failed",
         description:
+          error?.details ||
           "There was an error processing your appointment. Please try again or contact us directly.",
         variant: "destructive",
       });
